@@ -24,14 +24,6 @@ console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
 console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
-//function addLeadingZero(value) {
-//  const values = value.toString();
-//  if (values.length < 3) {
-//    return values.padStart(2, '0');
-//  }
-//  return values;
-//}
-
 function addLeadingZero(value) {
   return value.toString().padStart(2, '0');
 }
@@ -76,6 +68,7 @@ function onBtnClick() {
     if (currentDate < selectedDate) {
       countTimer = convertMs(selectedDate - currentDate);
       upDateTime(countTimer);
+      refs.button.setAttribute('disabled', true);
     } else {
       clearInterval(timerId);
     }
